@@ -53,5 +53,7 @@ public class MainController {
        customer1.setId(customer.getId());
        customer1.setName(customer.getName());
        int index = customerList.indexOf(customer1);
+       customerList.set(index,customer);
+       return; new ResponseEntity<>(HttpStatus.valueOf(201));
     }
 }
