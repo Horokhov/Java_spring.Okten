@@ -45,4 +45,13 @@ public class MainController {
         customerList.set(indexOf,customer);
         return new ResponseEntity<>(HttpStatus.valueOf(201));
     }
+
+    @PatchMapping("/patchCustomer/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void patchCustomer(@PathVariable int id, @RequestBody Customer customer) {
+       Customer customer1 = customerList.stream().filter(c->c.getId()==id).findFirst().get();
+       customer1.setId(customer.getId());
+       customer1.setName(customer.getName());
+       int index = customerList.indexOf(customer1);
+    }
 }
