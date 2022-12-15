@@ -33,4 +33,11 @@ public class MainController {
         this.customerList.add(customer);
         return new ResponseEntity<>(this.customerList,HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/deleteCustomer/{id}")
+    public ResponseEntity<List<Customer>> deleteCustomer(@PathVariable int id) {
+        this.customerList.remove(id - 1);
+        return new ResponseEntity<>(this.customerList, HttpStatus.valueOf(200));
+
+    }
 }
