@@ -34,10 +34,15 @@ public class MainController {
         return new ResponseEntity<>(this.customerList,HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/deleteCustomer/{id}")
-    public ResponseEntity<List<Customer>> deleteCustomer(@PathVariable int id) {
-        this.customerList.remove(id - 1);
-        return new ResponseEntity<>(this.customerList, HttpStatus.valueOf(200));
-
+    @PutMapping("/putCustomer/{id}")
+    public ResponseEntity<ArrayList<Customer>> putCustomer(@PathVariable int id,@RequestBody Customer customer) {
+       Customer customer2 = customerList.stream().filter(customer1 -> customer1.getId() == id).
+                limit(1).
+                findFirst().
+                get();
+        System.out.println(customer2);
+        int indexOf = customerList.indexOf(customer2);
+        customerList.set(indexOf,customer);
+        return new ResponseEntity<>(HttpStatus.valueOf(201));
     }
 }
