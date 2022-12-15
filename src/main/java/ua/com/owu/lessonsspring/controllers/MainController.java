@@ -3,9 +3,7 @@ package ua.com.owu.lessonsspring.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ua.com.owu.lessonsspring.Models.Customer;
 
 import java.util.ArrayList;
@@ -23,9 +21,16 @@ public class MainController {
 
     }
 
-    @GetMapping("/getlist")
+    @GetMapping("/getList")
     //@ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<ArrayList<Customer>> getCustomerList() {
         return new ResponseEntity<>(this.customerList, HttpStatus.OK);
+    }
+
+    @PostMapping("/addCustomer")
+    public ResponseEntity<ArrayList<Customer>> addCustomer(@RequestBody Customer customer) {
+        System.out.println(customer);
+        this.customerList.add(customer);
+        return new ResponseEntity<>(this.customerList,HttpStatus.CREATED);
     }
 }
