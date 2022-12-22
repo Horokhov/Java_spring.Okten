@@ -4,10 +4,9 @@ package ua.com.owu.lessonsspring.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ua.com.owu.lessonsspring.Models.Customer;
+import ua.com.owu.lessonsspring.models.Customer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class MainController {
@@ -15,9 +14,6 @@ public class MainController {
     ArrayList<Customer> customerList=new ArrayList<>();
 
     public MainController() {
-        customerList.add(new Customer(5,"Max"));
-        customerList.add(new Customer(6,"Oleg"));
-        customerList.add(new Customer(7,"Boris"));
 
     }
 
