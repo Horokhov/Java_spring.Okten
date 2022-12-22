@@ -3,7 +3,7 @@ package ua.com.owu.lessonsspring.controllers;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ua.com.owu.june2022springboot.models.dto.ErrorDTO;
+import ua.com.owu.lessonsspring.models.dto.ErrorDTO;
 
 @RestControllerAdvice
 public class ErrorController {

@@ -45,7 +45,7 @@ public class CustomerService {
 
 
     public Customer byToken(String token) {
-        customerDAO.byToken(token);
+      return customerDAO.byToken(token);
     }
 
 
